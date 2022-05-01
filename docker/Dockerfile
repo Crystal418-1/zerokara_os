@@ -6,10 +6,16 @@ RUN apt update && apt install ca-certificates -y
 # Add custom apt sources.list
 ADD ./sources.list /etc/apt
 
-# Update & Upgrade apt
-RUN apt update && apt upgrade -y
+# Update & Upgrade apt & Install Dependencies
+RUN apt update && apt upgrade -y && apt install -y \
+        build-essential \
+        curl
 
-# Install Dependencies
+# Install Rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && . $HOME/.cargo/env
+
+# Install mdbook
+RUN cargo install mdbook --locked
 
 # Clean apt
 RUN apt autopurge && apt autoclean
