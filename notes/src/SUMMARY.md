@@ -10,5 +10,5 @@
 - [引导程序](./chap01/README.md)
   - [从CPU上电开始](./chap01/from-cpu-power-on.md)
   - [阅读源码](./chap01/read-src.md)
-    - [xv6]()
+    - [xv6](./chap01/read-src-xv6.md)
     - [Linux 0.11](./chap01/read-src-linux.md)
